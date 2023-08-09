@@ -8,7 +8,7 @@
   
 <script>
 export default {
-    name:'contador-component',
+    name: 'contador-component',
     data() {
         return {
             contador: 0,
@@ -25,7 +25,8 @@ export default {
 };
 </script>
   
-<style>
+<style scoped>
+
 .contador span {
     border-bottom: 1px solid #CCC;
     height: 30px;
