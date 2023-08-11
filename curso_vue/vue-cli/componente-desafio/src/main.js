@@ -4,10 +4,12 @@ import vuetify from './plugins/vuetify';
 
 Vue.config.productionTip = false
 
-import Cabecalho from './Cabecalho';
-import Conteudo from './Conteudo';
-import Menu from './Menu';
-import Rodape from './Rodape';
+import Cabecalho from '@/components/template/Cabecalho';
+import Conteudo from '@/components/widgets/Conteudo';
+import Menu from '@/components/template/Menu';
+import Rodape from './components/template/Rodape';
+
+//@ é utilizado para acessaro caminho absoluto. o @ é a pasta src.
 
 Vue.component('app-cabecalho', Cabecalho);
 Vue.component('app-conteudo', Conteudo);
