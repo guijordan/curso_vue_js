@@ -44,7 +44,7 @@ export default {
             });
         },
         funds(state){
-            state.fund;
+            return state.funds;
         }
     }
 }
