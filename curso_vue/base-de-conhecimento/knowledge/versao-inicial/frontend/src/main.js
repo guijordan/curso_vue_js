@@ -4,13 +4,14 @@ import Vue from 'vue'
 import App from './App'
 
 import './config/bootstrap';
+import './config/msgs';
 import store from './config/store';
 import router from './config/router';
 
 Vue.config.productionTip = false
 
 // TEMPORÁRIO !
-require('axios').defaults.headers.common['Authorization'] = 'bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwibmFtZSI6Ikxlb25hcmRvIE0uIExlaXTDo28iLCJlbWFpbCI6Imxlb25hcmRvQGNvZDNyLmNvbS5iciIsImFkbWluIjp0cnVlLCJpYXQiOjE3MDE4MjMzODMsImV4cCI6MTcwMjA4MjU4M30.qwQC1-tJmHuNJK_9YrsSPU82uZHpZWthIdcR89utnIM';
+require('axios').defaults.headers.common['Authorization'] = 'bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwibmFtZSI6Ikxlb25hcmRvIE0uIExlaXTDo28iLCJlbWFpbCI6Imxlb25hcmRvQGNvZDNyLmNvbS5iciIsImFkbWluIjp0cnVlLCJpYXQiOjE3MDIzMzk1MDgsImV4cCI6MTcwMjU5ODcwOH0.bbMWesZJQekgI_kbO_IFcrLXeOePeIe5gQspfFQpyyQ';
 
 new Vue({
   store,
