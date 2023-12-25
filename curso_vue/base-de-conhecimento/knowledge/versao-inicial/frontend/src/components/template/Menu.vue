@@ -4,7 +4,7 @@
             <i class="fa fa-search fa-lg"></i>
             <input type="text" placeholder="Digite para filtrar..." v-model="treeFilter" class="filter-field" />
         </div>
-        <Tree :data="treeData" :options="treeOptions" :filter="treeFilter" ref="tree"/>
+        <Tree :data="treeData" :options="treeOptions" :filter="treeFilter" ref="tree" />
     </aside>
 </template>
 
@@ -16,31 +16,35 @@ import axios from 'axios';
 
 export default {
     name: 'Menu',
-    components: {Tree},
+    components: { Tree },
     computed: mapState(['isMenuVisible']),
-    data: function(){
+    data: function () {
         return {
-            treeFilter:'',
+            treeFilter: '',
             treeData: this.getTreeData(),
             treeOptions: {
-                propertyNames: {'text':'name'},
-                filter: {emptyText: 'Categoria Não Encontrada'}
+                propertyNames: { 'text': 'name' },
+                filter: { emptyText: 'Categoria Não Encontrada' }
             }
         }
     },
     methods: {
-        getTreeData(){
+        getTreeData() {
             const url = `${baseApiUrl}/categories/tree`;
             return axios.get(url).then(res => res.data);
         },
-        onNodeSelect(node){
+        onNodeSelect(node) {
             this.$router.push({
                 name: 'articlesByCategory',
-                params: {id: node.id},
+                params: { id: node.id },
             });
+
+            if (this.$mq === 'xs' || this.$mq === 'sm') {
+                this.$store.commit('toggleMenu', false);
+            }
         }
     },
-    mounted(){
+    mounted() {
         this.$refs.tree.$on('node:selected', this.onNodeSelect);
     }
 }
@@ -58,11 +62,11 @@ export default {
 
 .menu a,
 .menu a:hover {
-    color:#fff;
+    color: #fff;
     text-decoration: none;
 }
 
-.menu .tree-node.selected > .tree-content,
+.menu .tree-node.selected>.tree-content,
 .menu .tree-node .tree-content:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
